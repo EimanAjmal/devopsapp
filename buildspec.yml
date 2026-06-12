@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Source Code Checkout Complete"
+      - echo "Starting Docker Image Build..."
+  
+  build:
+    commands:
+      - echo "Build Started"
+      - docker build -t devops-lab-image .
+      - echo "Docker Image Built Successfully!"
+  
+  post_build:
+    commands:
+      - echo "Build Complete!"
+      - echo "Display build success message"
+      - docker images
+
+artifacts:
+  files:
+    - '**/*'
